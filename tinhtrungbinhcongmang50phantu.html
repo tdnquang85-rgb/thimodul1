@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tinh trung binh cong mang</title>
+</head>
+
+
+<body>
+    <h1>giá trị trung binh cộng</h1>
+    <h1 id="tbc"></h1>
+    <table id="danhsachmang" border="1" cellspacing="10" cellpadding="15"></table>
+    <script>
+
+
+
+
+
+function themPhanTuVaoMang() {
+    let mang = [];
+    let soLuongPhanTu = 3;
+    for (let i = 0; i < soLuongPhanTu; i++) {
+        let giaTri = prompt(`Nhập phần tử thứ ${i + 1}:`);
+        mang.push(giaTri);
+    }
+    
+    return mang;
+}
+
+
+function hienThiMang() {
+		let str=`<tr> 
+		<th>STT</th>
+		<th>giá trị</th>		
+		</tr>`
+
+		for (let i=0; i<mang.length;i++) {
+		str +=`<tr>
+		<td>${i+1}</td>
+		<td>${mang[i]}</td>
+		</tr>
+		`
+		}
+		document.getElementById("danhsachmang").innerHTML= str;
+		}
+function tinhTBC(){
+    let numTBC=0;
+    for (let i = 0; i < mang.length; i++) {
+        if (parseInt(mang[i]) % 3===0) {
+        
+            numTBC+=parseInt(mang[i]);
+        }
+        
+    }
+    let TBC = numTBC / mang.length;
+    return TBC;
+}
+
+
+
+
+
+    let mang = themPhanTuVaoMang();    
+	hienThiMang();
+	let TBC = tinhTBC();
+    alert(`Trung bình cộng của các phần tử trong mảng là: ${TBC}`);
+    document.getElementById("tbc").innerHTML = `Trung bình cộng của các phần tử chia hết cho 3 trong mảng là: ${TBC}`;
+
+</script>
+</body>
+</html>

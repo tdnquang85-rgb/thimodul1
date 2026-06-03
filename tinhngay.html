@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính ngày</title>
+</head>
+
+
+
+<body>
+
+
+
+
+
+
+
+    <script>
+        function namNhuan(year) {
+            return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+        }
+
+        function ngayCuaThang(month, year) {
+            if (month === 2) {
+                return namNhuan(year) ? 29 : 28;
+            } else if (
+                (month === 4) ||
+                (month === 6) ||
+
+                (month === 9) ||
+                (month === 11)
+             
+            ) {
+                return 30;
+            } else {
+                return 31;
+            }
+        }
+
+        function tinhNgayTrongThang(month, year) {
+            return ngayCuaThang(month, year);
+        }
+
+
+        function laThangHopLe(chuoi) {
+  const so = Number(chuoi);
+  return Number.isInteger(so) && so >= 1 && so <= 12;
+}
+
+
+    
+    thang = prompt("Nhập tháng:");
+    nam = prompt("Nhập năm:");
+    if (laThangHopLe(thang) && !isNaN(nam) && nam > 0) {
+        let soNgay = tinhNgayTrongThang(parseInt(thang), parseInt(nam));
+        alert(`Số ngày trong tháng ${thang} năm ${nam} là: ${soNgay}`);
+    } else {
+        alert("Vui lòng nhập tháng hợp lệ (1-12) và năm dương.");
+    }
+
+    </script>
+    
+</body>
+</html>
