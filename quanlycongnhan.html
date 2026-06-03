@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quan ly cong nhan</title>
+</head>
+<body>
+    <table id="danhsach" border="1" cellspacing="10" cellpadding="15"></table>
+    <script>
+        class congNhan{
+            constructor(STT,hoTen,ngaySinh,điaChi,Luong,chucvu) {
+                this.STT = STT;
+                this.hoTen = hoTen;
+                this.ngaySinh = ngaySinh;
+                this.diaChi = diaChi;
+                this.Luong = Luong;
+                this.chucVu = chucVu;
+            }
+
+            sapXepHoTen() {
+                congNhan.sort((a, b) => a.hoTen.localeCompare(b.hoTen));
+            }
+        }
+
+
+
+
+function listCongNhan   () {
+		let str=`<tr> 
+		<th>STT</th>
+		<th >ho va ten</th>
+        <th >ngay sinh</th>		
+		<th >diachi</th>
+        <th>luong</th>
+        <th >chuc vu</th>
+		</tr>`
+
+
+for (let i=0; i<congNhan.length;i++) {
+		str +=`<tr>
+		<td>${i+1}</td>
+		<td>${congNhan[i].hoTen}</td>
+		<td>${congNhan[i].ngaySinh}</td>
+		<td>${congNhan[i].diaChi}</td>
+		<td>${congNhan[i].Luong}</td>
+		<td>${congNhan[i].chucVu}</td>
+		</tr>
+		`
+		}
+document.getElementById("danhsach").innerHTML= str;
+    }
+
+let congNhan1 = new congNhan(1,"Nguyen Van A","01/01/1990","Hanoi",5000000,"Truong phong");
+let congNhan2 = new congNhan(2,"Le Thi B","02/02/1992","HCM",4000000,"Pho phong");
+let congNhan3 = new congNhan(3,"Tran Van C","03/03/1994","Da Nang",3000000,"Nhan vien");
+
+let congNhan = [congNhan1,congNhan2,congNhan3];
+
+
+congNhan.listCongNhan();
+
+
+    </script>
+    
+</body>
+</html>
